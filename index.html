@@ -3,188 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>木德MOOD X 重慶行程推薦</title>
+    <title>木德MOOD X 重慶行程</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
         :root {
-            --morandi-red: #a67b78; /* 莫蘭迪紅核心色 */
-            --morandi-dark: #7d5a57;
-            --morandi-light: #e8dedd;
-            --bg-gray: #f2efee;
-            --text-main: #4a3e3d;
+            --m-red: #a67b78;
+            --m-dark: #7d5a57;
+            --m-soft: #f4efee;
+            --m-bg: #faf9f9;
+            --text: #5e5453;
         }
-        body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; line-height: 1.6; margin: 0; background: var(--bg-gray); color: var(--text-main); scroll-behavior: smooth; }
-        
-        /* 頂部導覽列 */
-        header { 
-            background: white; padding: 15px; position: sticky; top: 0; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; text-align: center;
-        }
-        .header-title { font-size: 1.5rem; font-weight: bold; color: var(--morandi-red); margin-bottom: 15px; display: block; }
-        .buy-now-bar { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .btn-buy { 
-            background: var(--morandi-red); color: white; border: none; padding: 10px 18px; 
-            border-radius: 4px; cursor: pointer; text-decoration: none; font-size: 14px; transition: 0.3s; 
-        }
-        .btn-buy:hover { background: var(--morandi-dark); }
 
-        /* 主要佈局：側邊導覽 + 內容 */
-        .main-layout { max-width: 1100px; margin: 30px auto; display: flex; gap: 30px; padding: 0 20px; }
-        
-        /* 左側快速跳轉 */
-        .side-nav { width: 180px; position: sticky; top: 150px; height: fit-content; }
-        .side-nav h3 { font-size: 1rem; color: var(--morandi-dark); border-bottom: 1px solid var(--morandi-red); padding-bottom: 5px; }
-        .side-nav ul { list-style: none; padding: 0; }
-        .side-nav li a { 
-            display: block; padding: 10px; color: var(--text-main); text-decoration: none; 
-            border-left: 3px solid transparent; transition: 0.3s;
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--m-bg);
+            color: var(--text);
+            margin: 0;
+            scroll-behavior: smooth;
         }
-        .side-nav li a:hover { color: var(--morandi-red); border-left: 3px solid var(--morandi-red); background: #fff; }
 
-        /* 右側內容區 */
-        .content-area { flex: 1; }
-        section { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        h2 { color: var(--morandi-red); margin-top: 0; display: flex; align-items: center; gap: 10px; }
-        h2::after { content: ""; flex: 1; height: 1px; background: var(--morandi-light); }
+        /* 頂部導航 */
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            border-bottom: 1px solid var(--m-soft);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--m-red);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .buy-bar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-minimal {
+            text-decoration: none;
+            color: var(--m-red);
+            border: 1px solid var(--m-red);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .btn-minimal:hover {
+            background: var(--m-red);
+            color: white;
+        }
+
+        /* 主要內容排版 */
+        .wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            display: flex;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* 側邊欄 */
+        .sidebar {
+            width: 220px;
+            position: sticky;
+            top: 140px;
+            height: fit-content;
+        }
+
+        .nav-group {
+            margin-bottom: 25px;
+        }
+
+        .nav-group b {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: var(--m-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-group ul {
+            list-style: none;
+            padding-left: 10px;
+            margin: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .nav-group a {
+            text-decoration: none;
+            color: #999;
+            font-size: 13px;
+            display: block;
+            padding: 6px 0;
+            transition: 0.3s;
+        }
+
+        .nav-group a:hover { color: var(--m-red); }
+
+        /* 行程卡片 */
+        .content { flex: 1; }
+        .day-section { margin-bottom: 60px; }
+        .day-title { font-size: 24px; font-weight: 300; margin-bottom: 30px; border-bottom: 1px solid var(--m-soft); display: inline-block; }
+
+        .spot-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+        }
+
+        .spot-img {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-color: #eee;
+        }
+
+        .spot-info { padding: 20px; }
+        .spot-info h4 { margin: 0 0 10px 0; font-size: 18px; color: var(--m-dark); }
+        .spot-info p { margin: 0; font-size: 14px; color: #888; margin-bottom: 15px; }
+
+        /* 路程箭頭 */
+        .path-arrow {
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            color: var(--m-red);
+            font-size: 12px;
+            font-weight: 300;
+        }
+        .path-arrow::before {
+            content: "↓";
+            display: block;
+            font-size: 20px;
+        }
 
         /* 記帳與行李 */
-        .tool-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; }
-        .accounting-box input, .accounting-box select { padding: 8px; border: 1px solid var(--morandi-light); border-radius: 4px; margin-bottom: 10px; width: 100%; box-sizing: border-box; }
-        .checklist-group { margin-bottom: 20px; }
-        .checklist-group h4 { margin: 10px 0; color: var(--morandi-dark); font-size: 0.95rem; }
-        .checklist-item { display: block; margin-bottom: 5px; cursor: pointer; font-size: 14px; }
+        .tool-card { background: white; padding: 25px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        input, select { 
+            width: 100%; border: none; border-bottom: 1px solid var(--m-soft); 
+            padding: 10px 0; margin-bottom: 15px; background: transparent; color: var(--text); outline: none;
+        }
+        .check-item { display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 8px; color: #777; }
 
         @media (max-width: 768px) {
-            .main-layout { flex-direction: column; }
-            .side-nav { width: 100%; position: static; }
-            .tool-grid { grid-template-columns: 1fr; }
+            .wrapper { flex-direction: column; }
+            .sidebar { width: 100%; position: static; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <span class="header-title">木德MOOD X 重慶行程推薦</span>
-    <div class="buy-now-bar">
-        <a href="https://www.trip.com/t/EDilODF4vT2" target="_blank" class="btn-buy">✈️ 機票</a>
-        <a href="https://www.trip.com/t/ZZaQNaF4vT2" target="_blank" class="btn-buy">🏨 住宿</a>
-        <a href="https://www.kkday.com/zh-tw/portable-travel-wifi-sim-card?cid=22347" target="_blank" class="btn-buy">📱 eSIM</a>
-        <a href="https://www.trip.com/t/qw7haaR4vT2" target="_blank" class="btn-buy">🎟️ 門票</a>
-        <a href="https://www.kkday.com/zh-tw/category/global/experiences?cid=22347" target="_blank" class="btn-buy">🚐 一日遊</a>
+    <span class="logo">MOOD X CHONGQING</span>
+    <div class="buy-bar">
+        <a href="https://www.trip.com/t/EDilODF4vT2" target="_blank" class="btn-minimal">機票</a>
+        <a href="https://www.trip.com/t/ZZaQNaF4vT2" target="_blank" class="btn-minimal">住宿</a>
+        <a href="https://www.kkday.com/zh-tw/portable-travel-wifi-sim-card?cid=22347" target="_blank" class="btn-minimal">eSIM</a>
+        <a href="https://www.trip.com/t/qw7haaR4vT2" target="_blank" class="btn-minimal">門票</a>
+        <a href="https://www.kkday.com/zh-tw/category/global/experiences?cid=22347" target="_blank" class="btn-minimal">一日遊</a>
     </div>
 </header>
 
-<div class="main-layout">
-    <nav class="side-nav">
-        <h3>每日推薦行程</h3>
-        <ul>
-            <li><a href="#day1">Day 1：山城初探</a></li>
-            <li><a href="#day2">Day 2：魔幻建築</a></li>
-            <li><a href="#day3">Day 3：古鎮時光</a></li>
-            <li><a href="#food">必吃特色美食</a></li>
-            <li><a href="#tools">旅遊工具</a></li>
-        </ul>
-    </nav>
-
-    <div class="content-area">
-        <section id="day1">
-            <h2>Day 1</h2>
-            <p>解放碑步行街 ➔ 洪崖洞夜景 ➔ 千廝門大橋看嘉陵江。第一天感受重慶的繁華與立體視覺衝擊。</p>
-        </section>
-
-        <section id="day2">
-            <h2>Day 2</h2>
-            <p>李子壩穿樓輕軌 ➔ 鵝嶺二廠文創園 ➔ 觀音橋步行街。體驗重慶網紅打卡點與文藝氣息。</p>
-        </section>
-
-        <section id="day3">
-            <h2>Day 3</h2>
-            <p>磁器口古鎮 ➔ 渣滓洞/白公館 ➔ 南山一棵樹觀景台。深入重慶歷史文化與俯瞰全景。</p>
-        </section>
-
-        <section id="food">
-            <h2>必吃特色美食</h2>
-            <ul>
-                <li><strong>九宮格火鍋：</strong> 沒吃火鍋等於沒來過重慶。</li>
-                <li><strong>重慶小麵：</strong> 麻辣鮮香的道地早餐。</li>
-                <li><strong>陳麻花：</strong> 磁器口的經典伴手禮。</li>
-                <li><strong>酸辣粉：</strong> 街頭必備的酸爽美味。</li>
+<div class="wrapper">
+    <aside class="sidebar">
+        <div class="nav-group">
+            <b onclick="toggleNav('itinerary-list')">每日推薦行程 <span>▾</span></b>
+            <ul id="itinerary-list">
+                <li><a href="#day1">Day 1 山城初探</a></li>
+                <li><a href="#day2">Day 2 魔幻軌道</a></li>
+                <li><a href="#day3">Day 3 藝文古鎮</a></li>
             </ul>
+        </div>
+        <div class="nav-group">
+            <b>當日天氣</b>
+            <div style="font-size: 12px; color: #999;">重慶 18°C / 陰天</div>
+        </div>
+        <div class="nav-group">
+            <b>必吃店家</b>
+            <ul>
+                <li><a href="#food">珮姐老火鍋</a></li>
+                <li><a href="#food">一隻酸奶牛</a></li>
+            </ul>
+        </div>
+        <div class="nav-group">
+            <b>小工具</b>
+            <ul>
+                <li><a href="#tools">旅行記帳</a></li>
+                <li><a href="#checklist">行李清單</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="content">
+        <section id="day1" class="day-section">
+            <h3 class="day-title">Day 1</h3>
+            
+            <div class="spot-card">
+                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1541311634027-28564177d33d?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="spot-info">
+                    <h4>解放碑步行街</h4>
+                    <p>重慶的心臟地帶，適合拍城市時尚大片。</p>
+                    <a href="https://www.trip.com/t/qw7haaR4vT2" class="btn-minimal">預約周邊體驗</a>
+                </div>
+            </div>
+
+            <div class="path-arrow">步行 15 分鐘</div>
+
+            <div class="spot-card">
+                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1521791146066-b339c1d6365a?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="spot-info">
+                    <h4>洪崖洞</h4>
+                    <p>《神隱少女》風格夜景，建議 19:30 燈亮後前往。</p>
+                </div>
+            </div>
         </section>
 
-        <section id="tools">
-            <h2>旅遊工具</h2>
-            <div class="tool-grid">
-                <div class="accounting-box">
-                    <h3>💰 旅行記帳</h3>
-                    <input type="text" id="acc-item" placeholder="花費項目（如：火鍋）">
-                    <input type="number" id="acc-amount" placeholder="金額">
-                    <select id="acc-split">
-                        <option value="1">自己付 (全額)</option>
-                        <option value="2">與朋友平分 (1/2)</option>
-                        <option value="3">三人平分 (1/3)</option>
-                        <option value="4">四人平分 (1/4)</option>
-                    </select>
-                    <button onclick="addExpense()" class="btn-buy" style="width:100%; margin-bottom:15px;">新增紀錄</button>
-                    <div style="background: var(--morandi-light); padding: 10px; border-radius: 4px;">
-                        <p style="margin:0;"><strong>個人應付總計：$<span id="total-personal">0</span></strong></p>
-                    </div>
-                    <ul id="exp-list" style="font-size: 13px; color: #666; padding-left: 20px; margin-top:15px;"></ul>
+        <section id="tools" class="day-section">
+            <h3 class="day-title">旅行記帳</h3>
+            <div class="tool-card">
+                <input type="text" id="acc-item" placeholder="項目內容">
+                <input type="number" id="acc-amount" placeholder="總金額">
+                <select id="acc-split">
+                    <option value="1">個人支付</option>
+                    <option value="2">2 人平分</option>
+                    <option value="3">3 人平分</option>
+                </select>
+                <button onclick="addExpense()" class="btn-minimal" style="width:100%; margin-top:10px;">記錄紀錄</button>
+                <div id="total-box" style="margin-top:20px; border-top: 1px solid var(--m-soft); padding-top:15px;">
+                    <span style="font-size: 13px;">個人負擔總計</span>
+                    <div style="font-size: 24px; color: var(--m-red); font-weight: bold;">$ <span id="total-personal">0</span></div>
                 </div>
+            </div>
+        </section>
 
-                <div>
-                    <h3>🧳 行李清單</h3>
-                    <div class="checklist-group">
-                        <h4>證件類</h4>
-                        <label class="checklist-item"><input type="checkbox"> 護照</label>
-                        <label class="checklist-item"><input type="checkbox"> 台胞證</label>
-                        <label class="checklist-item"><input type="checkbox"> 身分證</label>
-                        <label class="checklist-item"><input type="checkbox"> 健保卡</label>
-                        <label class="checklist-item"><input type="checkbox"> 國際駕照</label>
-                        <label class="checklist-item"><input type="checkbox"> 入境卡</label>
+        <section id="checklist" class="day-section">
+            <h3 class="day-title">行李清單</h3>
+            <div class="tool-card">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <p style="font-weight: bold; font-size: 14px;">證件</p>
+                        <div class="check-item"><input type="checkbox"> 護照</div>
+                        <div class="check-item"><input type="checkbox"> 台胞證</div>
+                        <div class="check-item"><input type="checkbox"> 國際駕照</div>
                     </div>
-                    <div class="checklist-group">
-                        <h4>個人用品類</h4>
-                        <label class="checklist-item"><input type="checkbox"> 衣服 / 褲子 / 內外衣物 / 襪子</label>
-                        <label class="checklist-item"><input type="checkbox"> 睡衣 / 帽子 / 泳衣</label>
-                        <label class="checklist-item"><input type="checkbox"> 拖鞋 / 布鞋 / 墨鏡</label>
-                        <label class="checklist-item"><input type="checkbox"> 化妝品 / 卸妝 / 保養品</label>
-                    </div>
-                    <div class="checklist-group">
-                        <h4>電子與其他</h4>
-                        <label class="checklist-item"><input type="checkbox"> 轉接頭 / 充電線 / 行動電源</label>
-                        <label class="checklist-item"><input type="checkbox"> 相機 / 筆電 / 平板</label>
-                        <label class="checklist-item"><input type="checkbox"> 雨傘 / 雨衣</label>
+                    <div>
+                        <p style="font-weight: bold; font-size: 14px;">電子</p>
+                        <div class="check-item"><input type="checkbox"> 轉接頭</div>
+                        <div class="check-item"><input type="checkbox"> 行動電源</div>
+                        <div class="check-item"><input type="checkbox"> 充電線</div>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 </div>
 
 <script>
-    let totalPersonal = 0;
+    // 導覽列折疊
+    function toggleNav(id) {
+        const el = document.getElementById(id);
+        if (el.style.maxHeight) {
+            el.style.maxHeight = null;
+        } else {
+            el.style.maxHeight = el.scrollHeight + "px";
+        }
+    }
 
+    // 記帳
+    let totalPersonal = 0;
     function addExpense() {
-        const item = document.getElementById('acc-item').value;
         const amount = parseFloat(document.getElementById('acc-amount').value);
         const split = parseInt(document.getElementById('acc-split').value);
-        
-        if (item && amount) {
-            const share = amount / split;
-            totalPersonal += share;
-            
+        if (amount) {
+            totalPersonal += (amount / split);
             document.getElementById('total-personal').innerText = totalPersonal.toFixed(2);
-            
-            const li = document.createElement('li');
-            const splitText = split > 1 ? ` (平分後: $${share.toFixed(2)})` : '';
-            li.innerText = `${item}: $${amount}${splitText}`;
-            document.getElementById('exp-list').appendChild(li);
-            
-            // 清空輸入
-            document.getElementById('acc-item').value = '';
             document.getElementById('acc-amount').value = '';
-        } else {
-            alert('請輸入完整的項目名稱與金額');
+            document.getElementById('acc-item').value = '';
         }
     }
 </script>
