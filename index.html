@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>木德MOOD X 重慶行程</title>
+    <title>木德MOOD X 重慶行程推薦</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
 
@@ -23,6 +23,7 @@
             scroll-behavior: smooth;
         }
 
+        /* 頂部導航 */
         header {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
@@ -67,6 +68,7 @@
             color: white;
         }
 
+        /* 主要佈局 */
         .wrapper {
             max-width: 900px;
             margin: 40px auto;
@@ -75,7 +77,7 @@
             padding: 0 20px;
         }
 
-        /* 側邊欄 */
+        /* 側邊導航 */
         .sidebar {
             width: 200px;
             position: sticky;
@@ -91,7 +93,7 @@
             color: #333;
             cursor: pointer;
             margin-bottom: 12px;
-            font-weight: 700; /* 粗體 */
+            font-weight: 700; /* 標題粗體 */
         }
 
         .nav-group ul {
@@ -113,7 +115,7 @@
 
         .nav-group a:hover { color: var(--m-red); }
 
-        /* 主內容 */
+        /* 右側主內容 */
         .content { flex: 1; }
         section { margin-bottom: 60px; }
         .section-title { font-size: 22px; font-weight: 700; margin-bottom: 25px; color: var(--m-dark); }
@@ -128,7 +130,7 @@
         }
         .spot-img { width: 100%; height: 220px; background-size: cover; background-position: center; background-color: #eee; }
         .spot-info { padding: 25px; }
-        .spot-info h4 { margin: 0 0 10px 0; font-size: 18px; }
+        .spot-info h4 { margin: 0 0 10px 0; font-size: 18px; color: var(--m-dark); }
         .spot-info p { margin: 0 0 15px 0; font-size: 14px; color: #999; }
 
         .path-arrow {
@@ -140,25 +142,18 @@
         }
         .path-arrow::before { content: "↓"; display: block; font-size: 24px; margin-bottom: 5px; }
 
-        /* 天氣 Iframe */
-        .weather-container {
-            width: 100%;
-            height: 450px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid var(--m-soft);
-        }
-
-        /* 工具與清單 */
+        /* 卡片容器樣式 */
         .card-ui { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+
+        /* 行李清單 (單欄) */
         .checklist-cat { margin-bottom: 25px; }
         .checklist-cat h5 { margin: 0 0 15px 0; color: var(--m-red); font-size: 15px; border-bottom: 1px solid var(--m-soft); padding-bottom: 5px; }
         .check-item { display: flex; align-items: center; gap: 12px; font-size: 15px; margin-bottom: 10px; cursor: pointer; color: #666; }
         .check-item input { accent-color: var(--m-red); width: 18px; height: 18px; }
 
+        /* 記帳輸入 */
         input[type="text"], input[type="number"], select {
-            width: 100%; border: none; border-bottom: 1px solid var(--m-soft); padding: 12px 0; margin-bottom: 15px; outline: none; font-size: 15px;
+            width: 100%; border: none; border-bottom: 1px solid var(--m-soft); padding: 12px 0; margin-bottom: 15px; outline: none; font-size: 15px; background: transparent; color: var(--text);
         }
 
         @media (max-width: 768px) {
@@ -191,18 +186,18 @@
             </ul>
         </div>
         <div class="nav-group">
-            <b onclick="location.href='#weather-sec'">當日天氣</b>
+            <b onclick="scrollToSection('weather-sec')">當日天氣</b>
         </div>
         <div class="nav-group">
             <b onclick="toggleNav('nav-food')">必吃店家 <span>▾</span></b>
             <ul id="nav-food">
-                <li><a href="#food">珮姐老火鍋</a></li>
-                <li><a href="#food">磁器口陳麻花</a></li>
+                <li><a href="#day1">珮姐老火鍋</a></li>
+                <li><a href="#day2">一隻酸奶牛</a></li>
             </ul>
         </div>
         <div class="nav-group">
             <b onclick="toggleNav('nav-tools')">小工具 <span>▾</span></b>
-            <ul id="nav-tools" style="max-height: 200px;">
+            <ul id="nav-tools">
                 <li><a href="#accounting">旅行記帳</a></li>
                 <li><a href="#checklist">行李清單</a></li>
             </ul>
@@ -215,28 +210,39 @@
             <div class="spot-card">
                 <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1541311634027-28564177d33d?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="spot-info">
-                    <h4>解放碑</h4>
-                    <p>重慶地標，建議傍晚抵達感受繁華。</p>
-                    <a href="https://www.trip.com/t/qw7haaR4vT2" target="_blank" class="btn-minimal">購買門票</a>
+                    <h4>解放碑步行街</h4>
+                    <p>重慶最繁華的商業地標，適合第一天抵達後漫步感受氛圍。</p>
+                    <a href="https://www.trip.com/t/ZZaQNaF4vT2" target="_blank" class="btn-minimal">查看周邊住宿</a>
                 </div>
             </div>
             <div class="path-arrow">步行 15 分鐘</div>
             <div class="spot-card">
                 <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1521791146066-b339c1d6365a?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="spot-info">
-                    <h4>洪崖洞夜景</h4>
-                    <p>千廝門大橋是最佳拍攝點。</p>
+                    <h4>洪崖洞</h4>
+                    <p>《神隱少女》既視感的吊腳樓，夜景美得令人屏息。</p>
                 </div>
             </div>
         </section>
 
         <section id="weather-sec">
             <div class="section-title">當日天氣</div>
-            <div class="weather-container">
-                <iframe 
-                    src="https://www.google.com/search?q=chongqing+weather&igu=1" 
-                    width="100%" height="100%" frameborder="0">
-                </iframe>
+            <div class="card-ui" style="padding: 0; overflow: hidden;">
+                <a class="weatherwidget-io" href="https://forecast7.com/zh-tw/29d56106d55/chongqing/" 
+                   data-label_1="CHONGQING" data-label_2="天氣預報" 
+                   data-font="Noto Sans TC" 
+                   data-icons="Climacons Animated" 
+                   data-mode="Forecast" 
+                   data-theme="pure" 
+                   data-basecolor="transparent" 
+                   data-accent="transparent" 
+                   data-textcolor="#a67b78" 
+                   data-highcolor="#a67b78" 
+                   data-lowcolor="#7d5a57" 
+                   data-suncolor="#a67b78" >CHONGQING WEATHER</a>
+                <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
             </div>
         </section>
 
@@ -246,14 +252,14 @@
                 <input type="text" id="acc-item" placeholder="項目內容">
                 <input type="number" id="acc-amount" placeholder="總金額">
                 <select id="acc-split">
-                    <option value="1">個人支付 (全額)</option>
+                    <option value="1">個人支付</option>
                     <option value="2">2 人平分</option>
                     <option value="3">3 人平分</option>
                     <option value="4">4 人平分</option>
                 </select>
-                <button onclick="addExpense()" class="btn-minimal" style="width:100%; margin-top:10px;">記錄紀錄</button>
+                <button onclick="addExpense()" class="btn-minimal" style="width:100%; margin-top:10px;">記錄花費</button>
                 <div style="margin-top:25px; text-align: center;">
-                    <span style="font-size: 13px; color:#999;">應付總金額</span>
+                    <span style="font-size: 13px; color:#999;">個人負擔總額</span>
                     <div style="font-size: 28px; color: var(--m-red); font-weight: 700;">$ <span id="total-val">0</span></div>
                 </div>
             </div>
@@ -273,16 +279,21 @@
                 </div>
                 <div class="checklist-cat">
                     <h5>個人用品類</h5>
-                    <label class="check-item"><input type="checkbox"> 衣服 / 褲子 / 內衣褲 / 襪子</label>
-                    <label class="check-item"><input type="checkbox"> 睡衣 / 帽子 / 泳衣</label>
+                    <label class="check-item"><input type="checkbox"> 衣服 / 褲子</label>
+                    <label class="check-item"><input type="checkbox"> 內褲 / 內衣</label>
+                    <label class="check-item"><input type="checkbox"> 襪子 / 睡衣</label>
+                    <label class="check-item"><input type="checkbox"> 帽子 / 泳衣</label>
                     <label class="check-item"><input type="checkbox"> 拖鞋 / 墨鏡 / 包包</label>
-                    <label class="check-item"><input type="checkbox"> 化妝品 / 卸妝保養品</label>
+                    <label class="check-item"><input type="checkbox"> 布鞋、拖鞋</label>
+                    <label class="check-item"><input type="checkbox"> 化妝品</label>
+                    <label class="check-item"><input type="checkbox"> 卸妝、保養品</label>
                 </div>
                 <div class="checklist-cat">
                     <h5>電子類</h5>
-                    <label class="check-item"><input type="checkbox"> 轉接頭 / 充電線</label>
-                    <label class="check-item"><input type="checkbox"> 行動電源 / 相機</label>
-                    <label class="check-item"><input type="checkbox"> 筆電 / 平板</label>
+                    <label class="check-item"><input type="checkbox"> 轉接頭</label>
+                    <label class="check-item"><input type="checkbox"> 充電線</label>
+                    <label class="check-item"><input type="checkbox"> 行動電源</label>
+                    <label class="check-item"><input type="checkbox"> 相機 / 筆電 / 平板</label>
                 </div>
                 <div class="checklist-cat">
                     <h5>其他</h5>
@@ -294,21 +305,37 @@
 </div>
 
 <script>
+    // 導覽列折疊功能
     function toggleNav(id) {
         const el = document.getElementById(id);
-        el.style.maxHeight = el.style.maxHeight ? null : el.scrollHeight + "px";
+        el.style.maxHeight = (el.style.maxHeight && el.style.maxHeight !== "0px") ? "0px" : el.scrollHeight + "px";
     }
 
-    let total = 0;
+    // 平滑捲動
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 記帳計算
+    let totalPersonal = 0;
     function addExpense() {
         const amount = parseFloat(document.getElementById('acc-amount').value);
         const split = parseInt(document.getElementById('acc-split').value);
         if (amount) {
-            total += (amount / split);
-            document.getElementById('total-val').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 1});
+            totalPersonal += (amount / split);
+            document.getElementById('total-val').innerText = totalPersonal.toLocaleString(undefined, {minimumFractionDigits: 1});
             document.getElementById('acc-amount').value = '';
             document.getElementById('acc-item').value = '';
+        } else {
+            alert('請輸入金額');
         }
+    }
+
+    // 初始化將選單展開
+    window.onload = () => {
+        document.querySelectorAll('.nav-group ul').forEach(ul => {
+            ul.style.maxHeight = ul.scrollHeight + "px";
+        });
     }
 </script>
 
