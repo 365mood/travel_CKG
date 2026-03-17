@@ -93,7 +93,7 @@
             color: #333;
             cursor: pointer;
             margin-bottom: 12px;
-            font-weight: 700; /* 標題粗體 */
+            font-weight: 700;
         }
 
         .nav-group ul {
@@ -142,16 +142,14 @@
         }
         .path-arrow::before { content: "↓"; display: block; font-size: 24px; margin-bottom: 5px; }
 
-        /* 卡片容器樣式 */
         .card-ui { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
 
-        /* 行李清單 (單欄) */
+        /* 行李清單 */
         .checklist-cat { margin-bottom: 25px; }
         .checklist-cat h5 { margin: 0 0 15px 0; color: var(--m-red); font-size: 15px; border-bottom: 1px solid var(--m-soft); padding-bottom: 5px; }
         .check-item { display: flex; align-items: center; gap: 12px; font-size: 15px; margin-bottom: 10px; cursor: pointer; color: #666; }
         .check-item input { accent-color: var(--m-red); width: 18px; height: 18px; }
 
-        /* 記帳輸入 */
         input[type="text"], input[type="number"], select {
             width: 100%; border: none; border-bottom: 1px solid var(--m-soft); padding: 12px 0; margin-bottom: 15px; outline: none; font-size: 15px; background: transparent; color: var(--text);
         }
@@ -191,8 +189,9 @@
         <div class="nav-group">
             <b onclick="toggleNav('nav-food')">必吃店家 <span>▾</span></b>
             <ul id="nav-food">
-                <li><a href="#day1">珮姐老火鍋</a></li>
-                <li><a href="#day2">一隻酸奶牛</a></li>
+                <li><a href="#food-list">珮姐老火鍋</a></li>
+                <li><a href="#food-list">一隻酸奶牛</a></li>
+                <li><a href="#food-list">磁器口陳麻花</a></li>
             </ul>
         </div>
         <div class="nav-group">
@@ -206,42 +205,85 @@
 
     <main class="content">
         <section id="day1">
-            <div class="section-title">Day 1</div>
+            <div class="section-title">Day 1：解放碑與洪崖洞</div>
             <div class="spot-card">
                 <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1541311634027-28564177d33d?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="spot-info">
                     <h4>解放碑步行街</h4>
-                    <p>重慶最繁華的商業地標，適合第一天抵達後漫步感受氛圍。</p>
-                    <a href="https://www.trip.com/t/ZZaQNaF4vT2" target="_blank" class="btn-minimal">查看周邊住宿</a>
+                    <p>重慶的心臟，時尚與歷史交會點。適合第一天漫步感受山城脈動。</p>
+                    <a href="https://www.trip.com/t/ZZaQNaF4vT2" target="_blank" class="btn-minimal">預訂周邊酒店</a>
                 </div>
             </div>
             <div class="path-arrow">步行 15 分鐘</div>
             <div class="spot-card">
                 <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1521791146066-b339c1d6365a?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="spot-info">
-                    <h4>洪崖洞</h4>
-                    <p>《神隱少女》既視感的吊腳樓，夜景美得令人屏息。</p>
+                    <h4>洪崖洞民俗風貌區</h4>
+                    <p>《神隱少女》風格夜景，建議 19:30 以後燈光全開時前往拍攝。</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="day2">
+            <div class="section-title">Day 2：魔幻交通巡禮</div>
+            <div class="spot-card">
+                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1616239922262-d464858d4621?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="spot-info">
+                    <h4>李子壩輕軌穿樓</h4>
+                    <p>看輕軌從住宅大樓中穿過，重慶最具代表性的視覺奇觀。</p>
+                </div>
+            </div>
+            <div class="path-arrow">輕軌 2 號線轉打車 20 分鐘</div>
+            <div class="spot-card">
+                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1506501139174-099022df5260?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="spot-info">
+                    <h4>長江索道</h4>
+                    <p>橫跨長江的空中交通，俯瞰兩岸壯麗美景。</p>
+                    <a href="https://www.trip.com/t/qw7haaR4vT2" target="_blank" class="btn-minimal">預約索道門票</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="day3">
+            <div class="section-title">Day 3：古蹟與藝文氛圍</div>
+            <div class="spot-card">
+                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="spot-info">
+                    <h4>磁器口古鎮</h4>
+                    <p>千年老街，品嚐正宗陳麻花，感受老重慶茶館文化。</p>
+                    <a href="https://www.kkday.com/zh-tw/category/global/experiences?cid=22347" target="_blank" class="btn-minimal">報名古鎮一日遊</a>
+                </div>
+            </div>
+            <div class="path-arrow">打車 15 分鐘</div>
+            <div class="spot-card">
+                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8a9b749f4?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="spot-info">
+                    <h4>鵝嶺二廠文創園</h4>
+                    <p>老工廠改建的藝文聖地，電影《從你的全世界路過》取景地。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="food-list">
+            <div class="section-title">必吃店家推薦</div>
+            <div class="card-ui">
+                <p><strong>• 珮姐老火鍋：</strong> 重慶火鍋排隊之王，麻辣夠味。</p>
+                <p><strong>• 一隻酸奶牛：</strong> 紫米露酸奶是重慶街頭人手一杯的神隊友。</p>
+                <p><strong>• 磁器口陳麻花：</strong> 甜鹹皆有，送禮自用兩相宜。</p>
             </div>
         </section>
 
         <section id="weather-sec">
             <div class="section-title">當日天氣</div>
-            <div class="card-ui" style="padding: 0; overflow: hidden;">
+            <div class="card-ui" style="padding: 0; min-height: 150px; overflow: hidden; position: relative;">
                 <a class="weatherwidget-io" href="https://forecast7.com/zh-tw/29d56106d55/chongqing/" 
                    data-label_1="CHONGQING" data-label_2="天氣預報" 
-                   data-font="Noto Sans TC" 
-                   data-icons="Climacons Animated" 
-                   data-mode="Forecast" 
-                   data-theme="pure" 
-                   data-basecolor="transparent" 
-                   data-accent="transparent" 
-                   data-textcolor="#a67b78" 
-                   data-highcolor="#a67b78" 
-                   data-lowcolor="#7d5a57" 
-                   data-suncolor="#a67b78" >CHONGQING WEATHER</a>
+                   data-font="Noto Sans TC" data-icons="Climacons Animated" data-mode="Forecast" data-theme="pure" 
+                   data-basecolor="transparent" data-textcolor="#a67b78" data-highcolor="#a67b78" data-lowcolor="#7d5a57">
+                   CHONGQING WEATHER
+                </a>
                 <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
                 </script>
             </div>
         </section>
@@ -255,9 +297,8 @@
                     <option value="1">個人支付</option>
                     <option value="2">2 人平分</option>
                     <option value="3">3 人平分</option>
-                    <option value="4">4 人平分</option>
                 </select>
-                <button onclick="addExpense()" class="btn-minimal" style="width:100%; margin-top:10px;">記錄花費</button>
+                <button onclick="addExpense()" class="btn-minimal" style="width:100%;">記錄花費</button>
                 <div style="margin-top:25px; text-align: center;">
                     <span style="font-size: 13px; color:#999;">個人負擔總額</span>
                     <div style="font-size: 28px; color: var(--m-red); font-weight: 700;">$ <span id="total-val">0</span></div>
@@ -270,34 +311,24 @@
             <div class="card-ui">
                 <div class="checklist-cat">
                     <h5>證件類</h5>
-                    <label class="check-item"><input type="checkbox"> 護照</label>
-                    <label class="check-item"><input type="checkbox"> 台胞證</label>
-                    <label class="check-item"><input type="checkbox"> 身分證</label>
-                    <label class="check-item"><input type="checkbox"> 健保卡</label>
-                    <label class="check-item"><input type="checkbox"> 國際駕照</label>
-                    <label class="check-item"><input type="checkbox"> 入境卡</label>
+                    <label class="check-item"><input type="checkbox"> 護照 / 台胞證</label>
+                    <label class="check-item"><input type="checkbox"> 身分證 / 健保卡</label>
+                    <label class="check-item"><input type="checkbox"> 國際駕照 / 入境卡</label>
                 </div>
                 <div class="checklist-cat">
                     <h5>個人用品類</h5>
-                    <label class="check-item"><input type="checkbox"> 衣服 / 褲子</label>
-                    <label class="check-item"><input type="checkbox"> 內褲 / 內衣</label>
-                    <label class="check-item"><input type="checkbox"> 襪子 / 睡衣</label>
-                    <label class="check-item"><input type="checkbox"> 帽子 / 泳衣</label>
-                    <label class="check-item"><input type="checkbox"> 拖鞋 / 墨鏡 / 包包</label>
-                    <label class="check-item"><input type="checkbox"> 布鞋、拖鞋</label>
-                    <label class="check-item"><input type="checkbox"> 化妝品</label>
-                    <label class="check-item"><input type="checkbox"> 卸妝、保養品</label>
+                    <label class="check-item"><input type="checkbox"> 衣服 / 褲子 / 襪子</label>
+                    <label class="check-item"><input type="checkbox"> 內衣褲 / 睡衣</label>
+                    <label class="check-item"><input type="checkbox"> 帽子 / 泳衣 / 墨鏡</label>
+                    <label class="check-item"><input type="checkbox"> 拖鞋 / 布鞋 / 包包</label>
+                    <label class="check-item"><input type="checkbox"> 化妝品 / 保養品</label>
                 </div>
                 <div class="checklist-cat">
-                    <h5>電子類</h5>
-                    <label class="check-item"><input type="checkbox"> 轉接頭</label>
-                    <label class="check-item"><input type="checkbox"> 充電線</label>
-                    <label class="check-item"><input type="checkbox"> 行動電源</label>
-                    <label class="check-item"><input type="checkbox"> 相機 / 筆電 / 平板</label>
-                </div>
-                <div class="checklist-cat">
-                    <h5>其他</h5>
-                    <label class="check-item"><input type="checkbox"> 雨傘、雨衣</label>
+                    <h5>電子與其他</h5>
+                    <label class="check-item"><input type="checkbox"> 轉接頭 / 充電線</label>
+                    <label class="check-item"><input type="checkbox"> 行動電源 / 相機</label>
+                    <label class="check-item"><input type="checkbox"> 筆電 / 平板</label>
+                    <label class="check-item"><input type="checkbox"> 雨傘 / 雨衣</label>
                 </div>
             </div>
         </section>
@@ -305,18 +336,15 @@
 </div>
 
 <script>
-    // 導覽列折疊功能
     function toggleNav(id) {
         const el = document.getElementById(id);
         el.style.maxHeight = (el.style.maxHeight && el.style.maxHeight !== "0px") ? "0px" : el.scrollHeight + "px";
     }
 
-    // 平滑捲動
     function scrollToSection(id) {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 記帳計算
     let totalPersonal = 0;
     function addExpense() {
         const amount = parseFloat(document.getElementById('acc-amount').value);
@@ -326,12 +354,9 @@
             document.getElementById('total-val').innerText = totalPersonal.toLocaleString(undefined, {minimumFractionDigits: 1});
             document.getElementById('acc-amount').value = '';
             document.getElementById('acc-item').value = '';
-        } else {
-            alert('請輸入金額');
         }
     }
 
-    // 初始化將選單展開
     window.onload = () => {
         document.querySelectorAll('.nav-group ul').forEach(ul => {
             ul.style.maxHeight = ul.scrollHeight + "px";
