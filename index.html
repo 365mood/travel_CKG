@@ -91,7 +91,7 @@
             color: #333;
             cursor: pointer;
             margin-bottom: 12px;
-            font-weight: 700; /* 標題粗體 */
+            font-weight: 700;
         }
 
         .nav-group ul {
@@ -142,7 +142,7 @@
 
         .card-ui { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
 
-        /* 行李清單單欄 */
+        /* 行李清單 */
         .checklist-cat { margin-bottom: 25px; }
         .checklist-cat h5 { margin: 0 0 15px 0; color: var(--m-red); font-size: 15px; border-bottom: 1px solid var(--m-soft); padding-bottom: 5px; }
         .check-item { display: flex; align-items: center; gap: 12px; font-size: 15px; margin-bottom: 10px; cursor: pointer; color: #666; }
@@ -208,158 +208,11 @@
                 <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1541311634027-28564177d33d?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="spot-info">
                     <h4>解放碑步行街</h4>
-                    <p>重慶地標中心，感受山城最繁華的商業氛圍。</p>
-                    <a href="https://www.trip.com/t/ZZaQNaF4vT2" target="_blank" class="btn-minimal">預訂周邊飯店</a>
+                    <p>重慶的心臟，適合漫步感受山城脈動。</p>
+                    <a href="https://www.trip.com/t/ZZaQNaF4vT2" target="_blank" class="btn-minimal">預訂飯店</a>
                 </div>
             </div>
             <div class="path-arrow">步行 15 分鐘</div>
             <div class="spot-card">
                 <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1521791146066-b339c1d6365a?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="spot-info">
-                    <h4>洪崖洞夜景</h4>
-                    <p>燈火輝煌的吊腳樓群，重慶夜色必拍景點。</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="day2">
-            <div class="section-title">Day 2：魔幻重慶奇觀</div>
-            <div class="spot-card">
-                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1616239922262-d464858d4621?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="spot-info">
-                    <h4>李子壩輕軌穿樓</h4>
-                    <p>體驗輕軌從住宅大樓中橫穿而過的視覺震撼。</p>
-                </div>
-            </div>
-            <div class="path-arrow">輕軌 2 號線轉打車 20 分鐘</div>
-            <div class="spot-card">
-                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1506501139174-099022df5260?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="spot-info">
-                    <h4>長江索道</h4>
-                    <p>重慶特有的空中巴士，俯瞰大江兩岸壯麗風景。</p>
-                    <a href="https://www.trip.com/t/qw7haaR4vT2" target="_blank" class="btn-minimal">預約索道票</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="day3">
-            <div class="section-title">Day 3：古鎮與文藝慢生活</div>
-            <div class="spot-card">
-                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="spot-info">
-                    <h4>磁器口古鎮</h4>
-                    <p>千年古鎮老街，品嚐道地陳麻花與江湖菜。</p>
-                    <a href="https://www.kkday.com/zh-tw/category/global/experiences?cid=22347" target="_blank" class="btn-minimal">查看體驗活動</a>
-                </div>
-            </div>
-            <div class="path-arrow">打車 15 分鐘</div>
-            <div class="spot-card">
-                <div class="spot-img" style="background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8a9b749f4?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="spot-info">
-                    <h4>鵝嶺二廠</h4>
-                    <p>文青最愛的老工廠改建基地，俯瞰嘉陵江的最佳視角。</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="food-sec">
-            <div class="section-title">必吃特色美食</div>
-            <div class="card-ui">
-                <p><strong>• 珮姐老火鍋：</strong> 排隊也要吃的山城火鍋經典。</p>
-                <p><strong>• 一隻酸奶牛：</strong> 紫米酸奶是解辣神伴侶。</p>
-                <p><strong>• 磁器口陳麻花：</strong> 古鎮最受歡迎的伴手禮。</p>
-            </div>
-        </section>
-
-        <section id="weather-sec">
-            <div class="section-title">當日天氣</div>
-            <div class="card-ui" style="background: white; padding: 20px;">
-                <div id="ww_a5ac80402227e" v='1.3' loc='id' a='{"t":"horizontal","lang":"zh-Hant","sl_lpl":1,"ids":["wl383"],"font":"Times","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
-                    <a href="https://weatherwidget.org/" id="ww_a5ac80402227e_u" target="_blank">Free weather widget</a>
-                </div>
-                <script async src="https://app3.weatherwidget.org/js/?id=ww_a5ac80402227e"></script>
-            </div>
-        </section>
-
-        <section id="accounting">
-            <div class="section-title">旅行記帳</div>
-            <div class="card-ui">
-                <input type="text" id="acc-item" placeholder="花費項目（如：火鍋）">
-                <input type="number" id="acc-amount" placeholder="金額">
-                <select id="acc-split">
-                    <option value="1">個人支付</option>
-                    <option value="2">2 人分攤</option>
-                    <option value="3">3 人分攤</option>
-                </select>
-                <button onclick="addExpense()" class="btn-minimal" style="width:100%; margin-top:10px;">記錄花費</button>
-                <div style="margin-top:25px; text-align: center;">
-                    <span style="font-size: 13px; color:#999;">我的分攤總額</span>
-                    <div style="font-size: 28px; color: var(--m-red); font-weight: 700;">$ <span id="total-val">0</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="checklist">
-            <div class="section-title">行李清單</div>
-            <div class="card-ui">
-                <div class="checklist-cat">
-                    <h5>證件類</h5>
-                    <label class="check-item"><input type="checkbox"> 護照 / 台胞證</label>
-                    <label class="check-item"><input type="checkbox"> 身分證 / 健保卡</label>
-                    <label class="check-item"><input type="checkbox"> 國際駕照 / 入境卡</label>
-                </div>
-                <div class="checklist-cat">
-                    <h5>個人用品類</h5>
-                    <label class="check-item"><input type="checkbox"> 衣服 / 褲子 / 睡衣</label>
-                    <label class="check-item"><input type="checkbox"> 內衣褲 / 襪子</label>
-                    <label class="check-item"><input type="checkbox"> 帽子 / 泳衣 / 墨鏡</label>
-                    <label class="check-item"><input type="checkbox"> 拖鞋 / 布鞋 / 包包</label>
-                    <label class="check-item"><input type="checkbox"> 化妝品 / 保養品</label>
-                </div>
-                <div class="checklist-cat">
-                    <h5>電子類</h5>
-                    <label class="check-item"><input type="checkbox"> 轉接頭 / 充電線</label>
-                    <label class="check-item"><input type="checkbox"> 行動電源 / 相機</label>
-                    <label class="check-item"><input type="checkbox"> 筆電 / 平板</label>
-                </div>
-                <div class="checklist-cat">
-                    <h5>其他</h5>
-                    <label class="check-item"><input type="checkbox"> 雨傘、雨衣</label>
-                </div>
-            </div>
-        </section>
-    </main>
-</div>
-
-<script>
-    function toggleNav(id) {
-        const el = document.getElementById(id);
-        el.style.maxHeight = (el.style.maxHeight && el.style.maxHeight !== "0px") ? "0px" : el.scrollHeight + "px";
-    }
-
-    function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-
-    let totalVal = 0;
-    function addExpense() {
-        const amount = parseFloat(document.getElementById('acc-amount').value);
-        const split = parseInt(document.getElementById('acc-split').value);
-        if (amount) {
-            totalVal += (amount / split);
-            document.getElementById('total-val').innerText = totalVal.toLocaleString(undefined, {minimumFractionDigits: 1});
-            document.getElementById('acc-amount').value = '';
-            document.getElementById('acc-item').value = '';
-        }
-    }
-
-    // 初始狀態展開選單
-    window.onload = () => {
-        document.querySelectorAll('.nav-group ul').forEach(ul => {
-            ul.style.maxHeight = ul.scrollHeight + "px";
-        });
-    }
-</script>
-
-</body>
-</html>
